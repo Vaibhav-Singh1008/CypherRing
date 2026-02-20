@@ -129,6 +129,8 @@ def upload_file():
     except Exception as e:
         print(f"Error processing file: {e}")
         return jsonify({"error": str(e)}), 500
+import os
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    int(os.environ.get("PORT",10000))
+    app.run(host='0.0.0.0', port=port)
