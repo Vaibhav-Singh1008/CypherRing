@@ -2,4 +2,4 @@ flask
 pandas
 networkx
 gunicorn
-flask cors;
+flask-cors
