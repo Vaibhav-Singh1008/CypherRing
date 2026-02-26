@@ -4,14 +4,11 @@ import networkx as nx
 import time
 from datetime import datetime
 from flask_cors import CORS
-import math  # <--- Ye MISSING tha!
-import json  # <--- Isey upar move kar diya
+import math 
+import json
 
 app = Flask(__name__)
-# Sabhi origins aur methods allow karne ke liye detail CORS setup
 CORS(app, resources={r"/*": {"origins": "*"}})
-
-# REQUIRED_COLUMNS mein 'timestamp' add kiya gaya hai taaki validation fail na ho
 REQUIRED_COLUMNS = ['transaction_id', 'sender_id', 'receiver_id', 'amount', 'timestamp']
 
 def validate_csv(df):
@@ -19,14 +16,13 @@ def validate_csv(df):
     return all(col in df.columns for col in REQUIRED_COLUMNS)
 
 def detect_fraud(df):
-    # Timestamp conversion (Must be in CSV)
+    
     df['timestamp'] = pd.to_datetime(df['timestamp'])
     G = nx.from_pandas_edgelist(df, 'sender_id', 'receiver_id', create_using=nx.DiGraph())
     
     fraud_rings = []
     suspicious_accounts = {}
 
-    # 1. Cycle Detection (Fraud Rings) - O(V+E) Logic
     all_cycles = list(nx.simple_cycles(G))
     for i, cycle in enumerate(all_cycles):
         if 3 <= len(cycle) <= 5:
@@ -45,11 +41,11 @@ def detect_fraud(df):
                     "ring_id": r_id
                 }
 
-    # 2. Smurfing Detection (High frequency in 72h window)
+    
     for node in G.nodes():
         node_txns = df[df['receiver_id'] == node].sort_values('timestamp')
         if len(node_txns) >= 10:
-            # 72 hours window logic
+
             window_duration = (node_txns['timestamp'].iloc[9] - node_txns['timestamp'].iloc[0]).total_seconds()
             
             if window_duration <= 259200: 
@@ -70,7 +66,7 @@ def detect_fraud(df):
                         "ring_id": s_id
                     }
 
-    # 3. Layering/Shell Detection
+    
     for node in G.nodes():
         paths = nx.single_source_shortest_path_length(G, node, cutoff=3)
         long_chains = [target for target, length in paths.items() if length >= 3]
@@ -121,7 +117,7 @@ def upload_file():
             }
         }
         
-        # Safe JSON Serialization
+        
         response_data = json.loads(json.dumps(output, default=lambda x: None if isinstance(x, float) and math.isnan(x) else str(x)))
 
         return jsonify(response_data)
