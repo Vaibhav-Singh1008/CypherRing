@@ -46,8 +46,6 @@ Our engine specifically targets the mandatory forensic patterns required by RIFT
 ## 🚀 Submission Checklist & Performance Targets
 To ensure eligibility and avoid disqualification, CypherRing meets all mandatory performance metrics:
 
-| :--- | :--- | :--- |
-
 
 | **Processing Time** | ≤ 30s for 10K transactions | ✅ Optimized |
 | **Precision** | ≥ 70% (Minimizing false positives) | ✅ Target Met |
