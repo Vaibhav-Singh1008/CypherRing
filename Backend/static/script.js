@@ -16,7 +16,7 @@ document.addEventListener('change', async (e) => {
 
             try {
                 // Fetch request to backend
-                const response = await fetch('http://127.0.0.1:8080/analyze', { 
+                const response = await fetch('/analyze', { 
                     method: 'POST',
                     body: formData
                 });
