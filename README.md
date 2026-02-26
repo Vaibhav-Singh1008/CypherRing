@@ -48,7 +48,7 @@ To ensure eligibility and avoid disqualification, Sentinel meets all mandatory p
 
 | Metric | RIFT 2026 Requirement | Current Status |
 | :--- | :--- | :--- |
-| **Live App** | Must be publicly accessible (Vercel/Render) | [Insert Link Here] |
+
 | **Processing Time** | ≤ 30s for 10K transactions | ✅ Optimized |
 | **Precision** | ≥ 70% (Minimizing false positives) | ✅ Target Met |
 | **Recall** | ≥ 60% (Catching maximum fraud rings) | ✅ Target Met |
