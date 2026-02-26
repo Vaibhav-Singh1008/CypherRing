@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CypherRing | Team SynergyX Forensics</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">CYPHER<span>RING</span></div>
+        <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a> <a href="#features">Features</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#contact">Contact</a>
+</div>
+    </nav>
+
+    <section id="home" class="section">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Anti-Money Muling <br><span class="highlight">Graph Engine</span></h1>
+                <p>Advanced forensics system to detect illicit financial networks using $O(V+E)$ algorithmic complexity. Built for RIFT '26.</p>
+                <div class="hero-btns">
+                    <a href="#dashboard" class="btn-primary">Launch Dashboard 🚀</a>
+                    <a href="#features" class="btn-secondary">View features</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="glass-card">
+                    <h3>System Readiness</h3>
+                    <canvas id="miniChart"></canvas>
+                    <div class="status-tag"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <h2 class="section-title">Core Detection Logic</h2>
+        <div class="features-grid">
+            <div class="f-card">
+                <div class="f-icon">🔄</div>
+                <h3>Circular Routing</h3>
+                <p>Identifies money loops (3-5 nodes) where funds return to source using NetworkX.</p>
+            </div>
+            <div class="f-card">
+                <div class="f-icon">⏱</div>
+                <h3>72h Smurfing</h3>
+                <p>Detects high-frequency "fan-in" patterns within a strict 3-day temporal window.</p>
+            </div>
+            <div class="f-card">
+                <div class="f-icon">🔗</div>
+                <h3>Layered Shells</h3>
+                <p>Traces deep linear transaction chains through multiple shell accounts.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="dashboard" class="section dark-bg">
+        <div class="dashboard-box">
+            <div class="dash-nav">
+                <span>❖ FORENSICS DASHBOARD</span>
+                <span>RIFT '26 | Lucknow</span>
+            </div>
+            <div class="stats-row">
+                <div class="stat"><h3>24,500</h3><p>TX ANALYZED</p></div>
+                <div class="stat red"><h3>12</h3><p>RINGS FOUND</p></div>
+                <div class="stat"><h3>72h</h3><p>WINDOW</p></div>
+            </div>
+            <div class="dash-main">
+                <div class="chart-area">
+                    <canvas id="mainDashboardChart"></canvas>
+                </div>
+                <div class="dash-main">
+    <div class="chart-area">
+        <div class="upload-section">
+            <h4>Analyze New Dataset</h4>
+            <input type="file" id="csvUpload" accept=".csv" hidden>
+            <label for="csvUpload" class="btn-scan">⚡ ANALYZE DATASET</label>
+            <p id="fileName" style="font-size: 0.7rem; margin-top: 5px; color: #71717a;"></p>
+        </div>
+        <canvas id="mainDashboardChart"></canvas>
+    </div>
+
+    <div class="table-area">
+        <h4>Detected Fraud Rings</h4>
+        <div class="table-wrapper">
+            <table class="fraud-table">
+                <thead>
+                    <tr>
+                        <th>Ring ID</th>
+                        <th>Nodes</th>
+                        <th>Pattern</th>
+                        <th>Risk</th>
+                    </tr>
+                </thead>
+                <tbody id="fraudBody">
+                    <tr>
+                        <td>#R-101</td>
+                        <td>5 Members</td>
+                        <td>Circular</td>
+                        <td><span class="risk high">High</span></td>
+                    </tr>
+                    <tr>
+                        <td>#R-102</td>
+                        <td>12 Members</td>
+                        <td>Smurfing</td>
+                        <td><span class="risk med">Med</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+     <section id="about" class="section">
+        <h2 class="section-title">Meet Team SynergyX</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="member-photo" style="background-image: url('vaibhav.jpeg');"></div>
+                <h3>Vaibhav Singh</h3>
+                <p class="role">Team Lead & System Architect</p>
+                <ul class="task-list">
+                    <li>Graph Logic Implementation</li>
+                    <li>Backend API (Flask) Development</li>
+                    <li>System Security Architecture</li>
+                </ul>
+            </div>
+
+            <div class="team-card">
+                <div class="member-photo" style="background-image: url('Srishti.jpeg');"></div>
+                <h3>Shrishti</h3>
+                <p class="role">UI/UX & Documentation</p>
+                <ul class="task-list">
+                    <li>README & Tech Documentation</li>
+                    <li>Frontend Wireframing</li>
+                    <li>Data Visualization Design</li>
+                </ul>
+            </div>
+
+            <div class="team-card">
+                <div class="member-photo" style="background-image: url('antra.jpeg');"></div>
+                <h3>Antra</h3>
+                <p class="role">Frontend Developer</p>
+                <ul class="task-list">
+                    <li>Responsive UI Implementation</li>
+                    <li>Dashboard Integration</li>
+                    <li>Live Graph Interactivity</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="section">
+        <div class="contact-container">
+            <h2>Contact Team SynergyX</h2>
+            <p>Team Lead: Vaibhav Singh (IIT Patna)</p>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent to SynergyX!');">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Query..."></textarea>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        © 2026 SynergyX - CypherRing Project for RIFT '26 Hackathon.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
